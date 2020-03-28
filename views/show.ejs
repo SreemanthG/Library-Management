@@ -1,0 +1,25 @@
+<%- include("partials/header")-%>
+
+<div class="ui main text container segment">
+    <div class="ui huge header"><%=book.title%></div>
+    <div class="ui top attached ">
+        <div class="item">
+            <img src="<%= book.image%>" alt="" class="ui centered rounded image">
+            <div class="content">
+                <span><%=new Date(book.created).toDateString()%></span>
+
+            </div>
+            <div class="description">
+                <p><%-book.body%></p>
+            </div>
+            <a class="ui blue button" href="/books/<%= book._id %>/edit" >Edit</a>
+            <form action="/books/<%= book._id %>?_method=DELETE" method="POST"  id="delete">
+                
+                    <input class="ui red button" type="submit" value="Delete">
+                
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include("partials/footer")-%>
